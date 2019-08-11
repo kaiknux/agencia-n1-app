@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classes from './AgenciaNOne.css';
 
 class AgenciaNOne extends Component {
     state = {
@@ -7,7 +8,9 @@ class AgenciaNOne extends Component {
 
 render () {
     return ( 
-        <p> Oi </p>
+        <div className={classes.AgenciaNOne}>
+            <p> Oi </p>
+        </div>
     )
 }
 }

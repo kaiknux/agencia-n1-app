@@ -42,7 +42,7 @@
     .NavigationItem a {
         color: #c8c8c8;
         height: 100%;
-        padding: 16px 10px;
+        padding: 0px 10px;
         border-bottom: 4px solid transparent;
         
     }

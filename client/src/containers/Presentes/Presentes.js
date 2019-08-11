@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './Presentes.css';
-import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
+
+
 class Presentes extends Component {
     state = {
 
