@@ -1,0 +1,16 @@
+.Logo {
+    background-color: white;
+    height: 80px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    mix-blend-mode: multiply;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding-right: 30px;
+}
+
+.Logo img {
+    height: 80px;
+}
