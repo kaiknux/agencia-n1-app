@@ -4,6 +4,7 @@ import axios from '../../axios-registers';
 import Input from '../../components/Input/Input';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import { storage } from '../../assets/firebase';
+import ProdutoListado from '../../components/ProdutoListado/ProdutoListado';
 
 class Games extends Component {
     state = { 
@@ -45,6 +46,7 @@ class Games extends Component {
         image: null,
         url: null,
         loading: false,
+        products: null,
     };
 
 
@@ -107,9 +109,6 @@ class Games extends Component {
         // }
 
     }
-    componentDidMount() {
-        console.log(this.state);
-    }
 
     checkValidity(value, rules) {
         let isValid = false;
@@ -123,6 +122,30 @@ class Games extends Component {
 
         const oi = e.target.files[0];
         this.setState({image: oi})
+    }
+
+    componentDidMount () {
+        axios.get('/presentes.json')
+        .then(res => {
+            console.log('aqui')
+            console.log(res.data)
+            const fetchedProducts = [];
+            for (let key in res.data) {
+                fetchedProducts.push({
+                    ...res.data[key],
+                    id: key
+                });
+            }
+            console.log('fetched products')
+            console.log(fetchedProducts)
+            this.setState({loading: false, products: fetchedProducts});
+            console.log('e agora');
+            console.log(this.state)
+        })
+        .catch(err => {
+            this.setState({loading: false});
+        });
+
     }
 
 render () {
@@ -150,17 +173,36 @@ render () {
             form = <Spinner />;
         }
 
+        let productsListed = <Spinner />;
+        if (this.state.products) {
+            productsListed = (
+                this.state.products.map(singleProd => {
+                    return <ProdutoListado key={singleProd.id}
+                                    nome={singleProd.nome}
+                                    preco={singleProd.price}
+                                    image={singleProd.image}
+                    />
+                } ))
+                    
+        }
+
+
+       
+
+
     return ( 
         <div className={classes.Games}>
-            Adicionando produtos no banco de dados Google Firebase:
+            Adicionando novos produtos no banco de dados Google Firebase para entrarem na loja:
                 {form}
-
-
+                <div className={classes.ProdutosCadastrados}>
+                Visualizando objetos cadastrados:
+                {productsListed}
+                </div>
         </div>
     )
+    
+    }
 }
-}
-
 export default Games;
 
 // service firebase.storage {
