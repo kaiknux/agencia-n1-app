@@ -1,10 +1,46 @@
 .Outerfooter {
+    position: relative;
     bottom: 0;
-    left: 0;
+    margin: 0;
     width: 100%;
-    flex-shrink: 0;
+    display: block;
     text-align: center;
     background-color: tomato;
     color: white;
+    display: flex;
+    margin-top: 30px;
+    height: 104px;
+  }
 
+  .FooterLeft {
+    background-color: #0f4156;
+    width: 30%;
+    height: 100%;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 50px;
+
+  }
+
+  .FooterRight {
+    background-color: #4ec2dd;
+    width: 70%;
+    height: 100%;
+
+    text-align: left;
+
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+
+  }
+
+  .divLogo {
+    width: 50px;
+    height: 80px;
+    margin: 30px  30px auto 0px;
+    vertical-align: baseline;
+    
   }

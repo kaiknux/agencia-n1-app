@@ -1,14 +1,20 @@
 import React from 'react';
 
 import classes from './Footer.css';
-import Logo from '../../UI/Logo/Logo';
+import Logo1a from '../Logo1a/Logo1a';
 
 
 
 const footer = (props) => (
     <div className={classes.Outerfooter}>
-        Algum texto
-        <Logo />
+        <div className={classes.FooterLeft}>
+            <div className={classes.divLogo}>
+                <Logo1a />
+            </div>
+        </div>
+        <div className={classes.FooterRight}>
+            Agência N1 - Todos os direitos reservados.
+        </div>
     </div>
 );
 
