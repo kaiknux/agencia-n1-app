@@ -8,19 +8,26 @@
     overflow-x: hidden;
 }
 
+.ProdutosCadastrados {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    width: 700px;
+}
 
 @media (max-width: 900px) {
     .Games {
-        width: 100%;
-        height: 600px;
+        width: 800px;
+        height: 100%;
         margin: auto;
     }
 }
 @media (min-width: 901px) {
     .Games {
-        max-width: 1200px;
-        min-width: 901px;
-        height: 600px;
+        max-width: 800px;
+        min-width: 600px;
+        height: 100%;
         margin: auto;
     }
 }
