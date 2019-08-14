@@ -1,17 +1,15 @@
 .Presentes {
     margin: 90px auto;
-    height: 250px;
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
-    overflow-x: hidden;
+
 }
 
 
 @media (max-width: 900px) {
     .Presentes {
         width: 100%;
-        height: 600px;
         margin: auto;
     }
 }
@@ -19,7 +17,6 @@
     .Presentes {
         max-width: 1200px;
         min-width: 901px;
-        height: 600px;
         margin: auto;
     }
 }

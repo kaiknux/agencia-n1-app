@@ -4,6 +4,7 @@ import classes from '../Toolbar/Toolbar.css';
 import Logo from '../../UI/Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
+import SearchForm from '../../Navigation/SearchForm/SearchForm';
 
 
 const toolbar = (props) => (
@@ -18,7 +19,7 @@ const toolbar = (props) => (
             <NavigationItems />
         </div>
         </div>
-        <div className={classes.SearchPlaceHolder}></div>
+           <SearchForm />
     </div>
     </div>
 );
