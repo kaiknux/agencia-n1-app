@@ -127,8 +127,8 @@ class Games extends Component {
     componentDidMount () {
         axios.get('/presentes.json')
         .then(res => {
-            console.log('aqui')
-            console.log(res.data)
+            // console.log('aqui')
+            // console.log(res.data)
             const fetchedProducts = [];
             for (let key in res.data) {
                 fetchedProducts.push({
@@ -136,11 +136,11 @@ class Games extends Component {
                     id: key
                 });
             }
-            console.log('fetched products')
-            console.log(fetchedProducts)
+            // console.log('fetched products')
+            // console.log(fetchedProducts)
             this.setState({loading: false, products: fetchedProducts});
-            console.log('e agora');
-            console.log(this.state)
+            // console.log('e agora');
+            // console.log(this.state)
         })
         .catch(err => {
             this.setState({loading: false});

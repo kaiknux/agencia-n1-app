@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './ProdutoListado.css';
 
 const ProdutoListado = (props) => (
-    <div className={classes.ProdutoListado}>
+    <div onClick={props.clicked} className={classes.ProdutoListado}>
 <div className={classes.canhoto}>
     <h1>{props.key}</h1>
     <p>{props.nome}</p>
