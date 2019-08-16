@@ -52,12 +52,13 @@ class SearchForm extends Component {
         const { suggestions } = this.state;
         if (suggestions.length === 0) {
             return null;
-        }
+        } else {
         return (
             <ul className={classes.sugList}> 
                 {suggestions.map((item) => <li onClick={() => this.suggestionStatesCleaner(item)}>{item.name}</li>)}
             </ul>
         );
+    }
     }
     suggestionSelected (optionClicked) {
         console.log(optionClicked)

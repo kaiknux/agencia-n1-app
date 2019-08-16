@@ -56,6 +56,18 @@ render () {
 
     let productsListed = <Spinner />;
     if (this.state.products) {
+        if (Array.isArray(this.state.image)) {
+            productsListed = (
+                this.state.products.map(singleProd => {
+                    return <ProdutoListado key={singleProd.id}
+                                    nome={singleProd.nome}
+                                    preco={singleProd.price}
+                                    image={singleProd.image[0]}
+                                    clicked={() => this.productSelectedHandler(singleProd.id)}
+                                    realpreco={singleProd.realprice}
+                    />
+                } ))
+        } else {
         productsListed = (
             this.state.products.map(singleProd => {
                 return <ProdutoListado key={singleProd.id}
@@ -63,10 +75,12 @@ render () {
                                 preco={singleProd.price}
                                 image={singleProd.image}
                                 clicked={() => this.productSelectedHandler(singleProd.id)}
+                                realpreco={singleProd.realprice}
                 />
             } ))
                 
     }
+}
 
     return ( 
         <div className={classes.Presentes}>

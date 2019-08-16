@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": ";AACA;;;;;;;;;;EAUE;AERF,UAAU;EACR,WAAW,EDHU,UAAU;ECI/B,GAAG,EAAE,uFAAiE;EACtE,GAAG,EAAE,6FAAuE,CAAC,2BAA2B,EACnG,uFAAiE,CAAC,kBAAkB,EACpF,wFAAkE,CAAC,cAAc,EACjF,gGAA0E,CAAC,aAAa;EAC7F,WAAW,EAAE,MAAM;EACnB,UAAU,EAAE,MAAM",
+    "sources": [
+        "ionicons.scss",
+        "_ionicons-variables.scss",
+        "_ionicons-font.scss"
+    ],
+    "names": [],
+    "file": "ionicons.css"
+}

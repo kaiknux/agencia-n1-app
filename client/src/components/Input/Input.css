@@ -2,6 +2,8 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    font-size: 12px;
+    font-weight: 300;
 }
 
 .Label {
@@ -25,3 +27,4 @@
     outline: none;
     background-color: #ccc;
 }
+

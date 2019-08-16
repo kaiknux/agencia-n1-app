@@ -1,0 +1,21 @@
+.GalContainer {
+    display: flex;
+    max-width: 600px;
+    min-width: 500px;
+}
+
+
+.thumbnails img{
+    width: 80px;
+    height: 80px;
+}
+.thumbnails:hover {
+    cursor: pointer;
+}
+
+.selectedThumbnail img {
+    max-width: 500px;
+    min-width: 400px;
+    height: auto;
+    margin-left: 20px;
+}

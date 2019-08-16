@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import classes from './Sale.css';
 import axios from '../../axios-registers';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import ProdutoListado from '../../components/ProdutoListado/ProdutoListado';
-
+import Slider from '../../components/Slider/Slider';
+// import GaleriaImagens from '../../components/GaleriaImagens/GaleriaImagens';
+import Galeria from '../../components/GaleriaImagens/Galeria';
 class Sale extends Component {
     state = {
         products: null,
+        produto: null,
+        loading: true,
     }
     componentWillMount() {
         const query = new URLSearchParams(this.props.location.search);
 
         for (let param of query.entries()) {
-            const teste = param[0]
-            const bola = param[1] 
+ 
             console.log('console log param 1')
             console.log(param[1])
-            const arrayDeObjetos = [];
             axios.get('/presentes.json')
             .then(res => {
                 // console.log('aqui')
@@ -31,13 +32,12 @@ class Sale extends Component {
                 this.setState({loading: false, products: fetchedProducts})
                 const filtered = this.state.products.filter(item =>
                     item.id === param[1] )
-                    console.log(filtered);
+                    this.setState({loading: false, produto: filtered})
                 console.log(this.state)
             })
                 .catch(err => {
                     this.setState({loading: false});
                 });
-                console.log(this.state)
             }
         
 
@@ -55,8 +55,32 @@ class Sale extends Component {
     }
 
 render () {
+    let galeria = <Spinner />
+    if (this.state.produto) {
+        galeria = (<Galeria product={this.state.produto} />)
+    }
+
+
     return ( 
         <div className={classes.Sale}>
+            <div className={classes.bredCrumbGrid}>
+
+            </div>
+            <div className={classes.cartaoDoProduto}>
+                <div className={classes.imagemProduto}>
+                        {/* <GaleriaImagens /> */}
+                        {galeria}
+                </div>
+                <div className={classes.navegadorDeCompra}>
+                    
+                </div>
+            </div>
+        <div className={classes.descricaoProduto}>
+
+        </div>
+        <div className={classes.slickSliderShelf}>
+            <Slider />
+        </div>
         <p> Sale </p>
         </div>
     )

@@ -24,7 +24,29 @@ class Games extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Preço do produto',
+                    placeholder: 'Preço sem desconto',
+                },
+                value: '',
+                validation: {
+                    required: true,
+                },
+            },
+            realprice: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Preço de venda',
+                },
+                value: '',
+                validation: {
+                    required: true,
+                },
+            },
+            vendivel: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Anunciar para venda? \'sim\' ou \'não\'  ',
                 },
                 value: '',
                 validation: {
@@ -64,51 +86,91 @@ class Games extends Component {
         this.setState({itemForm: updateditemForm});
     }
 
-    registerHandler = (event) => {
-        console.log(event.target)
-        event.preventDefault(); // evine que envie uma request e reloade a pagina
-        this.setState({loading: true});
-        // alert('Continue!');
+    handleFileChange = (e) => {
 
-        const image = this.state.image;
-        const uploadTask = storage.ref(this.state.image.name).put(image);
-        uploadTask.on('state_changed', 
-        (snapshot) => {
-            //progress function
-            console.log('uploading...')
-        }, (error) => {
-            //error function
-            console.log(error);
-            this.setState({loading: false})
-        }, () => {
-            //success function
-            console.log('uploaded!')
-            this.setState({loading: false})
-            const formData = {};
-            for (let formElementIdentifier in this.state.itemForm ) {
-                formData[formElementIdentifier] = this.state.itemForm[formElementIdentifier].value;
-            }
-            console.log('aqui');
-            console.log(this.state.image)
-            let formDataCor = {
-                ...formData,
-                image: this.state.image.name,
-            }
-            axios.post( '/presentes.json' , formDataCor )
-            .then(response => {
-                this.setState({loading: false});
-            })
-            .catch(error => {
-                this.setState({loading: false});
-                console.log(error);
-        });
-        })
-        // const register = {
-        //     // file in here
-        //     produto: formDataCor,
-        // }
+        const yourFilesToTheServer = e.target.files
+        let arrayPackage = [];
+        setTimeout(() => {
+            for (let key in yourFilesToTheServer) {
+                arrayPackage.push(yourFilesToTheServer[key])
+            }}, 400);
+
+        this.setState({imageArray: arrayPackage, image: e.target.files})
+        setTimeout(() => {
+            console.log(this.state)
+        }, 300);
 
     }
+        
+    formsToFirebaseHandler = async (event) => {
+    event.preventDefault();
+
+// ---------------------------------------------------------------------------------------
+        const arrayDeNomes = [];
+        setTimeout(() => {
+            for (let i = 0; i < (this.state.imageArray.length - 2); i++) {
+                arrayDeNomes.push(this.state.imageArray[i].name)
+            }
+        }, 100)
+        console.log('arrayDeNomes:')
+        console.log(arrayDeNomes);
+        setTimeout(() => {
+        this.setState({
+            ImageArrayFiltrado: arrayDeNomes
+        })
+        console.log(this.state)
+    }, 300)
+const formData = {};
+for (let formElementIdentifier in this.state.itemForm ) {
+    formData[formElementIdentifier] = this.state.itemForm[formElementIdentifier].value;
+}
+
+formData.image = arrayDeNomes;
+console.log(formData);
+console.log('arrayDeNomes')
+console.log(arrayDeNomes)
+console.log(this.state)
+// let formDataCor = {
+//     ...formData,
+//     image: this.state.ImageArrayFiltrado,
+// }
+setTimeout(() => {
+axios.post( '/presentes.json' , formData )
+.then(response => {
+    this.setState({loading: false});
+    window.location.reload();
+})
+.catch(error => {
+    this.setState({loading: false});
+    console.log(error);
+});
+}, 300)
+
+
+// ---------------------------------------------------------------------------------------
+    
+    setTimeout(() => {
+     this.state.imageArray.forEach(
+           (jpg) => {
+               console.log(jpg);
+               let uploadTask = storage.ref(jpg.name).put(jpg)
+               uploadTask.on('state_changed', 
+               (snapshot) => {
+                   //progress function
+                   console.log('uploading...')
+               }, (error) => {
+                   //error function
+                   console.log(error);
+                   this.setState({loading: false})
+               }, () => {
+                   //success function
+                   console.log(`${jpg.name} uploaded!`)
+               })
+           })
+        }, 500);
+       }
+
+    
 
     checkValidity(value, rules) {
         let isValid = false;
@@ -118,11 +180,7 @@ class Games extends Component {
         return isValid
     }
 
-    handleChange = (e) => {
 
-        const oi = e.target.files[0];
-        this.setState({image: oi})
-    }
 
     componentDidMount () {
         axios.get('/presentes.json')
@@ -157,7 +215,7 @@ render () {
         });
     }
     let form = (
-        <form onSubmit={this.registerHandler}>
+        <form onSubmit={this.formsToFirebaseHandler}>
             {formElementsArray.map(formElement => (
                 <Input key={formElement.id}
                     elementType={formElement.config.elementType}
@@ -166,36 +224,54 @@ render () {
                     changed={(event) => this.inputChangedHandler(event, formElement.id)}
                 />
             ))}
-            <input type="file" onChange={this.handleChange}/>
+            <input type="file" onChange={this.handleFileChange} multiple />
             <button>Enviar</button>
         </form>);
         if (this.state.loading) {
             form = <Spinner />;
         }
-
         let productsListed = <Spinner />;
         if (this.state.products) {
+
+            if (Array.isArray(this.state.image)) {
+                let produtosOriginais = this.state.products.slice(0,4)
+                productsListed = (
+                    produtosOriginais.map(singleProd => {
+                        return <ProdutoListado key={singleProd.id}
+                                        nome={singleProd.nome}
+                                        preco={singleProd.price}
+                                        image={singleProd.image[0]}
+                                        realpreco={singleProd.realprice}
+                        />
+                    } ))
+            } else {
+                let produtosOriginais = this.state.products.slice(0,4)
             productsListed = (
-                this.state.products.map(singleProd => {
+                produtosOriginais.map(singleProd => {
                     return <ProdutoListado key={singleProd.id}
                                     nome={singleProd.nome}
                                     preco={singleProd.price}
                                     image={singleProd.image}
+                                    realpreco={singleProd.realprice}
                     />
                 } ))
                     
         }
-
+    }
 
        
 
 
     return ( 
         <div className={classes.Games}>
-            Adicionando novos produtos no banco de dados Google Firebase para entrarem na loja:
+            Adicionando novos presentes no banco de dados Google Firebase para entrarem na loja:
+            <div className={classes.AreaDeForm}>
                 {form}
+            </div>
+                <br/>
+                Visualizando objetos iniciais:
                 <div className={classes.ProdutosCadastrados}>
-                Visualizando objetos cadastrados:
+   
                 {productsListed}
                 </div>
         </div>
