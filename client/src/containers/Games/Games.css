@@ -1,20 +1,45 @@
 .Games {
-    max-width: 70%;
+    width: 100%;
     margin: 90px auto;
-    height: 250px;
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
     overflow-x: hidden;
     min-height: 100%;
+
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.Upload {
+    width: 450px;
+    margin: auto;
+}
+
+.Upload p {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.Upload h4 {
+    text-align: center;
+    margin: auto;
 }
 
 .ProdutosCadastrados {
     margin: auto;
-    display: flex;
-    flex-direction: column;
     padding-top: 30px;
     width: 700px;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
 }
 
 @media (max-width: 900px) {

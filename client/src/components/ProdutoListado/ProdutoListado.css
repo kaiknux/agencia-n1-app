@@ -1,26 +1,43 @@
 .ProdutoListado {
-    width: 700px;
-    height: 170px;
-    margin: auto;
-    border: 1px solid red;
-    background-color: #c5c5c5;
+    width: 270px;
     margin: 5px;
+    background-color: #f8f8f8;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     padding-left: 5px;
+    
 }
 
-p {
-    text-align: left;
+.destro {
+    margin-left: auto;
+    margin-top: 10px;
+    }
+
+.destro img {
+    width: -webkit-calc(100% - (10px * 2));
+    width: calc(100% - (10px * 2));
 }
+
+
 .Canhoto {
 margin-left: 0px;
 }
-.Destro {
-margin-left: auto;
+
+p {
+    width: -webkit-calc(100% - (10px * 2));
+    width: calc(100% - (10px * 2));
+    font-weight: 300;
+    font-size: 12px;
+    text-align: left;
+    color: #c8c8c8;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    font-stretch: semi-condensed;
 }
-.Image {
-    width: auto;
-    height: 150px;
-    mix-blend-mode: multiply;
+
+h4 {
+    color: #4ec2dd;
+    text-align: left;
+    margin-top: 6px;
 }

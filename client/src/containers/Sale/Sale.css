@@ -1,14 +1,17 @@
 .Sale {
-
-    margin: 90px auto;
-    height: 250px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    overflow-x: hidden;
+    background-color: white;
+    flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding: 10px;
+    margin: 0px auto;
 }
 
-
+.slickSliderShelf {
+    width: 100%;
+    display: flex;
+}
 @media (max-width: 900px) {
     .Sale {
         width: 100%;
