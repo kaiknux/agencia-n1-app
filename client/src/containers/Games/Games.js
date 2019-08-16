@@ -24,7 +24,7 @@ class Games extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Preço do produto',
+                    placeholder: 'Preço sem desconto',
                 },
                 value: '',
                 validation: {
@@ -35,7 +35,7 @@ class Games extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Preço do sem desconto',
+                    placeholder: 'Preço de venda',
                 },
                 value: '',
                 validation: {
@@ -130,7 +130,6 @@ console.log(formData);
 console.log('arrayDeNomes')
 console.log(arrayDeNomes)
 console.log(this.state)
-    
 // let formDataCor = {
 //     ...formData,
 //     image: this.state.ImageArrayFiltrado,
@@ -231,28 +230,28 @@ render () {
         if (this.state.loading) {
             form = <Spinner />;
         }
-
         let productsListed = <Spinner />;
         if (this.state.products) {
+
             if (Array.isArray(this.state.image)) {
+                let produtosOriginais = this.state.products.slice(0,4)
                 productsListed = (
-                    this.state.products.map(singleProd => {
+                    produtosOriginais.map(singleProd => {
                         return <ProdutoListado key={singleProd.id}
                                         nome={singleProd.nome}
                                         preco={singleProd.price}
                                         image={singleProd.image[0]}
-                                        clicked={() => this.productSelectedHandler(singleProd.id)}
                                         realpreco={singleProd.realprice}
                         />
                     } ))
             } else {
+                let produtosOriginais = this.state.products.slice(0,4)
             productsListed = (
-                this.state.products.map(singleProd => {
+                produtosOriginais.map(singleProd => {
                     return <ProdutoListado key={singleProd.id}
                                     nome={singleProd.nome}
                                     preco={singleProd.price}
                                     image={singleProd.image}
-                                    clicked={() => this.productSelectedHandler(singleProd.id)}
                                     realpreco={singleProd.realprice}
                     />
                 } ))
@@ -265,10 +264,14 @@ render () {
 
     return ( 
         <div className={classes.Games}>
-            Adicionando novos produtos no banco de dados Google Firebase para entrarem na loja:
+            Adicionando novos presentes no banco de dados Google Firebase para entrarem na loja:
+            <div className={classes.AreaDeForm}>
                 {form}
+            </div>
+                <br/>
+                Visualizando objetos iniciais:
                 <div className={classes.ProdutosCadastrados}>
-                Visualizando objetos cadastrados:
+   
                 {productsListed}
                 </div>
         </div>

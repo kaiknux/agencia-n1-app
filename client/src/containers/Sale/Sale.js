@@ -57,7 +57,7 @@ class Sale extends Component {
 render () {
     let galeria = <Spinner />
     if (this.state.produto) {
-        galeria = (<Galeria image={this.state.produto[0].image} />)
+        galeria = (<Galeria product={this.state.produto} />)
     }
 
 

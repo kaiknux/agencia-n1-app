@@ -42,6 +42,11 @@
     justify-content: space-around;
 }
 
+.AreaDeForm {
+    width: 65%;
+    margin: auto;
+}
+
 @media (max-width: 900px) {
     .Games {
         width: 800px;
