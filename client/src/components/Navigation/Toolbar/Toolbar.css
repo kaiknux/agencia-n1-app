@@ -6,6 +6,7 @@
     top: 0;
     left: 0;
     background-color: #ffffff;
+    z-index: 250;
     
 }
 
@@ -21,6 +22,7 @@
     /*mindthebackdropvalueof1000*/display: flex;
     justify-content: space-between;
     margin: auto;
+    z-index: inherit;
 }
 
 .drawerToggleArea {
@@ -37,6 +39,10 @@
 
 .topCart {
 
+}
+
+.topCart :hover{
+    cursor: pointer;
 }
 
 

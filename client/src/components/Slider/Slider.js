@@ -1,8 +1,26 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import classes from './Slider.css'
+import ProdutoListado from '../../components/ProdutoListado/ProdutoListado';
+import { withRouter } from 'react-router-dom';
 
-export default class Responsive extends Component {
+class Responsive extends Component {
+
+  productSelectedHandler = (id) => {
+    console.log('aqui o id')
+    console.log(id)
+    console.log('aqui o state')
+    console.log(this.state)
+    const queryParams = [];
+    queryParams.push('product=' + id);
+    const queryString = queryParams.join('&');
+    this.props.history.push({
+        pathname: '/sale',
+        search: '/' + queryString
+    });
+    window.location.reload();
+}
+
   render() {
     var settings = {
       dots: true,
@@ -13,7 +31,7 @@ export default class Responsive extends Component {
       initialSlide: 0,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1050,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
@@ -22,15 +40,15 @@ export default class Responsive extends Component {
           }
         },
         {
-          breakpoint: 600,
+          breakpoint: 850,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
+            slidesToScroll: 1,
+            initialSlide: 1
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 360,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1
@@ -38,36 +56,28 @@ export default class Responsive extends Component {
         }
       ]
     };
+    let singleProduct = '';
+    if (this.props.products) {
+      singleProduct = (
+        this.props.products.map(singleProd => {
+          return <div><ProdutoListado key={singleProd.id}
+                          nome={singleProd.nome}
+                          preco={singleProd.price}
+                          image={singleProd.image}
+                          realpreco={singleProd.realprice}
+                          clicked={() => this.productSelectedHandler(singleProd.id)}
+                          /></div>
+        })
+      )
+    }
     return (
       <div className={classes.SliderContainer}>
-        <h2> Quem viu, viu também </h2>
         <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-          <div>
-            <h3>7</h3>
-          </div>
-          <div>
-            <h3>8</h3>
-          </div>
+          {singleProduct}
         </Slider>
       </div>
     );
   }
 }
+
+export default withRouter(Responsive);

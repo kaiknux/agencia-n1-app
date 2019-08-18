@@ -7,8 +7,19 @@ import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 import SearchForm from '../../Navigation/SearchForm/SearchForm';
 import { ReactComponent as ShoppingCart } from '../../../assets/Images/shopping-cart.svg';
 import { withRouter } from 'react-router-dom';
-
+import Modal from '../../UI/Modal/Modal';
 class Toolbar extends Component {
+    state = {
+        modalCarrinho: false,
+    }
+
+    modalCarrinhoHandlerOn = () => {
+        this.setState({modalCarrinho: true})
+    }
+
+    modalCarrinhoHandlerOff = () => {
+        this.setState({modalCarrinho: false})
+    }
 
     voltaAoInicio = () => { 
         this.props.history.push({
@@ -19,11 +30,13 @@ class Toolbar extends Component {
     window.location.reload();
     }
     render() {
+        const carrinhoFeatureNotReady = <div><br/><br/><br/><br/><br/><br/><br/><br/><br/><h4>Feature não criada.</h4></div>
     return(
         <div className={classes.OuterToolbar}>
             <div className={classes.Toolbar}>
                 <div className={classes.drawerToggleArea}>
                     <DrawerToggle clicked={this.props.drawerToggleClicked} />
+                    <Modal show={this.state.modalCarrinho} modalClosed={this.modalCarrinhoHandlerOff}> {carrinhoFeatureNotReady} </Modal>
                 </div>
                                                 <div className={classes.switchableContent}> 
                                                     <div className={classes.MobileOnly} onClick={()=> this.voltaAoInicio}>
@@ -41,7 +54,7 @@ class Toolbar extends Component {
                                                                             </div>
 
 
-                <div className={classes.topCart}>
+                <div className={classes.topCart} onClick={() => this.modalCarrinhoHandlerOn()}>
                     <ShoppingCart />
                 </div>
 
