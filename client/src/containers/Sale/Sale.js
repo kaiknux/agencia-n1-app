@@ -92,7 +92,7 @@ render () {
                         <div>CALCULE O FRETE:</div>
                         
                         <div className={classes.ceparea}>
-                        <input type="text" className={classes.abc} placeholder="00000"/> <input type="text" className={classes.cde} placeholder="000"/> <button />
+                        <input type="text" className={classes.abc} placeholder="00000"/> <input type="text" className={classes.cde} placeholder="000"/><button>Calcular</button>
 
                         </div>
                     </div>
