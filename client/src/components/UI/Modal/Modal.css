@@ -1,13 +1,13 @@
 .Modal {
     position: fixed;
     z-index: 500;
-    background-color: rgba(224, 224, 224, 0.95);
+    background-color: white;
     width: 70%;
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px black;
     padding: 16px;
     left: 15%;
-    top: 30%;
+    top: 20%;
+    text-align: justify;
+    text-align-last: center;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
     border-radius: 3px;
@@ -15,11 +15,51 @@
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
+
+}
+.Modal img {
+    width: 135px;
+    height: 120px;
+}
+
+.Modal h4 {
+    font-size: 22px;
+    text-align: justify;
+    text-align-last: center;
+    font-weight: 600;
 }
 
 @media (min-width: 600px) {
     .Modal {
-        width: 500px;
+        width: 360px;
+        height: 407px;
         left: calc(50% - 250px);
+        padding: 50px;
     }
 }
+
+.Modal  button {
+    border-radius: 4px;
+    border-bottom-color: #0f4156 !important;
+    background-color: #0f4156; /* Green */
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font: inherit;
+    font-size: 12px;
+    font-display: condensed;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 4px;
+    font-weight: 700;
+    margin-top: 19px;
+  }
+
+  .Modal button:hover {
+    background-color: white; 
+    color: black; 
+  }
