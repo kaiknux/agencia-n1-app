@@ -62,7 +62,8 @@ class SearchForm extends Component {
         });
 
     }
-
+    // https://serene-yonath-2e29cf.netlify.com/sale?/product=-LmPF6Zmn-HLkL_yWx3i
+    // https://serene-yonath-2e29cf.netlify.com/sale?/product=-LmPF6Zmn-HLkL_yWx3i
 
     productSelectedHandler = (prodName) => {
         this.setState({ searchString: prodName, backdrap: false, triggerSuggestion: false })
@@ -79,7 +80,8 @@ class SearchForm extends Component {
         const queryString = queryParams.join('&');
         // console.log(this.props)
         // const lugar = `/sale/${queryString}`
-        this.props.history.push({
+        console.log(this.props.history)
+        this.props.history.replace({
             pathname: '/sale',
             search: '/' + queryString
         });
