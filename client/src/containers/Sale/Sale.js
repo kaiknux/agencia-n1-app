@@ -5,6 +5,7 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import Slider from '../../components/Slider/Slider';
 // import GaleriaImagens from '../../components/GaleriaImagens/GaleriaImagens';
 import Galeria from '../../components/GaleriaImagens/Galeria';
+
 class Sale extends Component {
     state = {
         products: null,
@@ -58,6 +59,7 @@ render () {
     let galeria = <Spinner />
     let titulo = '';
     let priceInfo = '';
+    let breadcrumbProduct = '';
     if (this.state.produto) {
         galeria = (<Galeria product={this.state.produto} />)
         titulo = (<h1>{this.state.produto[0].nome}</h1>)
@@ -66,6 +68,7 @@ render () {
             <p><br/>por </p><h4>{this.state.produto[0].realprice}</h4>
             </div>
         )
+        breadcrumbProduct = <div>{this.state.produto[0].apelido}</div>
     }
     
 
@@ -73,7 +76,15 @@ render () {
     return ( 
         <div className={classes.Sale}>
             <div className={classes.breadCrumbGrid}>
-                breadCrumbs
+                <div className={classes.breadItem}>
+                    N1
+                </div>
+                <div className={classes.breadItem}>
+                    action figures
+                </div>
+                <div className={classes.breadItemSelected}>
+                    {breadcrumbProduct}
+                </div>
             </div>
             <div className={classes.cartaoDoProduto}>
                 <div className={classes.imagemProduto}>
@@ -104,7 +115,6 @@ render () {
         <div className={classes.slickSliderShelf}>
             <Slider />
         </div>
-        <p> Sale </p>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import whiteLogo from '../../../assets/Images/logo-n1-white.png';
-import classes from '../Logo/Logo.css';
+import classes from './Logo1a.css';
 
 const logo1a = (props) => (
     <div className={classes.logo1a}>

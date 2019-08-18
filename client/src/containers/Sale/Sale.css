@@ -17,12 +17,25 @@ body {
 }
 
 .breadCrumbGrid {
-    background-color: orange;
-    width: 50%;
-    height: 40px;
+    width: 100%;
+    height: 37px;
+
     margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    font: inherit;
+    font-weight: 700;
+    font-size: 11px;
 }
 
+.breadItem {
+    margin: auto 16px auto 10px;
+    color: #c8c8c8;
+}
+.breadItemSelected {
+    margin: auto 16px auto 10px;
+    color: #4ec2dd;
+}
 .cartaoDoProduto {
     width: 100%;
     /* background-color: red; */
@@ -50,6 +63,9 @@ body {
     }
 }
 @media (max-width: 600px) {
+    .Sale {
+        margin-right: 4px;
+    }
     .cartaoDoProduto {
         flex-direction: column;
     }
@@ -68,12 +84,13 @@ body {
 }
 
 .slickSliderShelf {
-    
-}
-
-.slickSliderShelf {
     width: 100%;
     display: flex;
+    color: #0f4156;
+    font: inherit; 
+    font-weight: 300px;
+    font-size: 21px;
+    margin-top: 20px;
 }
 
 .productName{
@@ -199,3 +216,4 @@ body {
     width: 66px;
     padding: 10px 21px;
 }   
+
