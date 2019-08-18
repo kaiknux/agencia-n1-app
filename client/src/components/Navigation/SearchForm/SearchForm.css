@@ -97,18 +97,11 @@ width: 100%;
       min-width: 390px;
     }
   }
-  @media (min-width: 535) and (max-width: 635) {
-    .Container {
-      min-width: 260px;
-      max-width: 390px;
-      border: 5px solid blue;
-    }
-  }
+
   @media (min-width: 635px) and (max-width: 810px) {
     .Container {
       min-width: 260px;
       max-width: 390px;
-      border: 5px solid red;
     }
   }
 
