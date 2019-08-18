@@ -27,7 +27,7 @@
 .ProdutosCadastrados {
     margin: auto;
     padding-top: 30px;
-    width: 100%;
+
 
     display: -webkit-box;
     display: -moz-box;
@@ -44,6 +44,22 @@
     margin: auto;
 }
 
+
+
+
+@media  (max-width: 530px) {
+    .ProdutosCadastrados {
+        width: 95%;
+        margin: auto;
+    }
+    .ProdutosCadastrados p {
+        font-size: 10px;
+    }
+    .ProdutosCadastrados h4 {
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 600px) {
     .Upload {
         width: 70%;
@@ -55,5 +71,6 @@
     .Upload {
         width: 450px;
         margin: auto;
+        width: 100%;
     }
 }
