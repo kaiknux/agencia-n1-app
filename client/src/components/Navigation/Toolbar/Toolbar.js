@@ -13,22 +13,27 @@ const toolbar = (props) => {
     return(
         <div className={classes.OuterToolbar}>
             <div className={classes.Toolbar}>
-                <DrawerToggle clicked={props.drawerToggleClicked} />
-                <div>
-                    <div className={classes.MobileOnly}>
-                        <Logo />
-                    </div>
-                    <div className={classes.DesktopOnly}>
-                        <NavigationItems />
-                    </div>
+                <div className={classes.drawerToggleArea}>
+                    <DrawerToggle clicked={props.drawerToggleClicked} />
                 </div>
-                <div>
-                <Route
-                    render={(props) => (<SearchForm recebido={props.recebido} {...props} />)}
-                    />
-                </div>
+                                                <div className={classes.switchableContent}> 
+                                                    <div className={classes.MobileOnly}>
+                                                        <Logo />
+                                                    </div>
+                                                    <div className={classes.DesktopOnly}>
+                                                        <NavigationItems />
+                                                    </div>
+                                                </div>
+
+                                                                            <div className={classes.searchFormArea}>
+                                                                                <Route
+                                                                                    render={(props) => (<SearchForm recebido={props.recebido} {...props} />)}
+                                                                                />
+                                                                            </div>
+
+
                 <div className={classes.topCart}>
-                      <ShoppingCart />
+                    <ShoppingCart />
                 </div>
 
 

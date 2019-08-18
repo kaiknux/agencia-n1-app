@@ -3,7 +3,6 @@ import classes from './SearchForm.css';
 
 // import { Router } from "react-router";
 // import { createBrowserHistory } from "history";
-import { Route  } from 'react-router'
 import { withRouter } from 'react-router-dom';
 import axios from '../../../axios-registers';
 
@@ -150,8 +149,7 @@ class SearchForm extends Component {
 
         return (
                 <div className={classes.Headerf1}>
-                    <form onSubmit={this.getWeather}>
-                        <Route></Route>
+                    <form onSubmit={this.searchHandler} className={classes.formHeader}>
                         <div className={classes.Container}>
                             <input     onKeyPress={event => {
                                           if (event.key === 'Enter') {
