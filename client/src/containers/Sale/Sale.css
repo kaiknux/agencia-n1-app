@@ -5,6 +5,9 @@
     width: 100%;
 
 }
+.Sale p {
+    color: #c5c5c5;
+}
 body {
     font-family:  'Raleway', sans-serif;
 }

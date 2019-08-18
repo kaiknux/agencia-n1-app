@@ -30,18 +30,9 @@ render () {
             <h2>Comentários do CSS:</h2>
             <h1>Cores dos tons de cinza (e demais cores)</h1>
             <p>Usei o conta-gotas do Adobe Photoshop para estimar cada tom de cinza proposto pelo exercício.</p>
-            <h1>Navegação do Toolbar 'empurra' demais elementos quando em :hover</h1>
-            <p>Percebi que os links de navegação do meu app alteram a posição dos outros elementos do Toolbar(header) propostos pelo exercício, porém não consegui pensar de maneira rápida em
-                uma solução ou mesmo penso que isso seja de grande impacto para o exercício.</p>
             <h1>Fonte e font-weight dos botões 'COMPRA AE' e 'CALCULAR'</h1>
             <p>Percebi que os botões 'COMPRA AE' e 'CALCULAR' do meu app não tem o mesmo font-weight e aspecto proposto pelo exercício, porém não consegui pensar de maneira rápida em
                 uma solução de 'font', 'font-weight' ou algo que igualasse ao proposto pelo exercício.</p>
-            <h1>Borda inferior do botão 'COMPRA AE'</h1>
-            <p>Percebi que os botão 'COMPRA AE' do meu app não tem a mesma borda inferior do proposto pelo exercício, porém não consegui pensar de maneira rápida em
-                uma solução de 'border-bottom', 3d effecta ou bevel emboss que igualasse ao proposto pelo exercício.</p>
-            <h1>Toolbar (header)</h1>
-            <p>Percebi que o header do meu app está deslocado para a direita em relação ao proposto pelo exercício, porém não consegui pensar de maneira rápida em
-                uma solução de 'margin', 'padding' e 'justify' que igualasse ao proposto pelo exercício.</p>
             <h2>App features:</h2>
             <h1>Cadastro de novos presentes</h1>
             <p>Não foram feitas regras para os inputs.</p>

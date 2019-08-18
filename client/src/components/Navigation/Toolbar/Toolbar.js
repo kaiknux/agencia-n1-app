@@ -8,6 +8,8 @@ import SearchForm from '../../Navigation/SearchForm/SearchForm';
 import { ReactComponent as ShoppingCart } from '../../../assets/Images/shopping-cart.svg';
 import { withRouter } from 'react-router-dom';
 import Modal from '../../UI/Modal/Modal';
+
+
 class Toolbar extends Component {
     state = {
         modalCarrinho: false,
