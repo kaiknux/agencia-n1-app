@@ -22,7 +22,8 @@
 .thumbnails img{
     width: 52px;
     height: 52px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #e5e5e5 !important;
+    z-index: 50;
 }
 
 .thumbnails:hover {

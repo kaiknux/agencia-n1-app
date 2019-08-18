@@ -5,6 +5,13 @@
     width: 100%;
 
 }
+.Sale h4 {
+    display: inline;
+}
+.Sale p {
+    display: inline;
+
+}
 
 .breadCrumbGrid {
     background-color: orange;
@@ -20,7 +27,7 @@
 }
 
 .navegadorDeCompra {
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 @media (min-width: 600px) {
@@ -65,3 +72,91 @@
     width: 100%;
     display: flex;
 }
+
+.productName{
+    margin: 0px 13px 10px 25px;
+}
+.productName h1 {
+    margin: 0px 0px 7px 0px;
+    font-size: 27px;
+    color: #c8c8c8;
+    font-weight: 500;
+    line-height: 165%;
+    font-stretch: condensed;
+}
+
+.priceBuyBox {
+    background-color: #f8f8f8;
+    padding: 10px 16px 14px 16px;
+    z-index: 1;
+    color: #a9a9a9;
+    margin-left: 2px;
+}
+
+.priceBuyBox p {
+    font-weight: 500;
+}
+
+.priceBuyBox h4 {
+    font-size: 27px;
+}
+.priceBuyBox  button {
+    border-radius: 4px;
+    border-bottom-color: #75ac5e !important;
+    background-color: #71ce4b; /* Green */
+    color: white;
+    padding: 9px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    font-display: condensed;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 4px;
+    font-weight: 700;
+    margin-top: 19px;
+  }
+  
+.priceBuyBox button:hover {
+    background-color: white; 
+    color: black; 
+  }
+
+.freteCalculation {
+    display:flex;
+    flex-direction: column;
+    font: inherit;
+    font-weight: 700;
+    font-size: 12px;
+    flex-wrap: wrap;
+    padding: 14px 19px 16px 20px;
+    margin: 11px 16px 0px 20px;
+    background-color: #4ec2dd;
+    color: white;
+    border-radius:5px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+}
+
+.freteCalculation input {
+    padding: 10px 20px;
+    display: inline-block;
+    border: 0.3px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 16px 4px 0px 0px;
+}
+
+
+ .abc {
+    width: 145px
+}   
+
+ .cde {
+    width: 66px;
+}   
