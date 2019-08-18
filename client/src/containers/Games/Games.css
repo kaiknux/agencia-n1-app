@@ -49,7 +49,7 @@
 
 @media  (max-width: 530px) {
     .ProdutosCadastrados {
-        width: 95%;
+        width: 98%;
         margin: auto;
     }
     .ProdutosCadastrados p {
@@ -57,6 +57,7 @@
     }
     .ProdutosCadastrados h4 {
         font-size: 14px;
+        font-stretch: ultra-condensed;
     }
 }
 
