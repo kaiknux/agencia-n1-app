@@ -77,12 +77,10 @@ class Galeria extends Component {
 
         return(
             <div className={classes.GalContainer}>
-                <div>
+                <div className={classes.divThumbnails}>
                     {thumbnails}
                 </div>
-                <div>
                     {selectedThumbnail}
-                </div>
             </div>
 
         );

@@ -1,29 +1,67 @@
 .Sale {
-    background-color: white;
+    /* background-color: blue; */
     flex-wrap: wrap;
     display: flex;
     width: 100%;
-    flex-direction: row;
-    padding: 10px;
-    margin: 0px auto;
+
+}
+
+.breadCrumbGrid {
+    background-color: orange;
+    width: 50%;
+    height: 40px;
+    margin: 20px auto;
+}
+
+.cartaoDoProduto {
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+}
+
+.navegadorDeCompra {
+    background-color: yellow;
+}
+
+@media (min-width: 600px) {
+    .cartaoDoProduto {
+        flex-direction: row;
+    }
+    .imagemProduto {
+        width: 50%;
+        max-width: 50%;
+        flex-basis: 50%;
+    }
+    
+    .navegadorDeCompra {
+        width: 50%;
+        max-width: 50%;
+        flex-basis: 50%;
+    }
+}
+@media (max-width: 600px) {
+    .cartaoDoProduto {
+        flex-direction: column;
+    }
+    .imagemProduto {
+        width: 100%;
+
+    }
+    
+    .navegadorDeCompra {
+        width: 100%;
+
+    }
+}
+.descricaoProduto {
+
+}
+
+.slickSliderShelf {
+    
 }
 
 .slickSliderShelf {
     width: 100%;
     display: flex;
-}
-@media (max-width: 900px) {
-    .Sale {
-        width: 100%;
-        height: 600px;
-        margin: auto;
-    }
-}
-@media (min-width: 901px) {
-    .Sale {
-        max-width: 1200px;
-        min-width: 901px;
-        height: 600px;
-        margin: auto;
-    }
 }

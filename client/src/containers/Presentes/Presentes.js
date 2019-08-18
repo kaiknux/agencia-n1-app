@@ -16,6 +16,7 @@ class Presentes extends Component {
         .then(res => {
             // console.log('aqui')
             // console.log(res.data)
+            console.log(this.props)
             const fetchedProducts = [];
             for (let key in res.data) {
                 fetchedProducts.push({

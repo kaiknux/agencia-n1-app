@@ -63,8 +63,8 @@ render () {
 
     return ( 
         <div className={classes.Sale}>
-            <div className={classes.bredCrumbGrid}>
-
+            <div className={classes.breadCrumbGrid}>
+            breadCrumbs
             </div>
             <div className={classes.cartaoDoProduto}>
                 <div className={classes.imagemProduto}>
@@ -72,7 +72,7 @@ render () {
                         {galeria}
                 </div>
                 <div className={classes.navegadorDeCompra}>
-                    
+                    Oi
                 </div>
             </div>
         <div className={classes.descricaoProduto}>

@@ -1,8 +1,18 @@
 .Content {
     /* margin-top: 90px; */
     margin: 90px auto 0px auto;
-    max-width: 932px;
-    width: -webkit-calc(100% - (50px * 2));
-    width: calc(100% - (50px * 2));
-    min-height: calc(100vh - 100px);
+    max-width: 802px;
+    padding: 10px;
+}
+
+@media (min-width: 600px) {
+    .Content {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .Content {
+        padding: 2px;
+    }
 }
