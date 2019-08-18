@@ -80,7 +80,13 @@ body {
     }
 }
 .descricaoProduto {
-
+    padding-top: 50px;
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 10px;
+}
+.descricaoProduto h2 {
+ font-size: 18px;
 }
 
 .slickSliderShelf {

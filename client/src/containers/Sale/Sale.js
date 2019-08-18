@@ -33,7 +33,9 @@ class Sale extends Component {
                 this.setState({loading: false, products: fetchedProducts})
                 const filtered = this.state.products.filter(item =>
                     item.id === param[1] )
-                    this.setState({loading: false, produto: filtered})
+                const unfiltered = this.state.products.filter(item =>
+                    item.id !== param[1] )
+                    this.setState({loading: false, produto: filtered, outrosProdutos: unfiltered})
                 console.log(this.state)
             })
                 .catch(err => {
@@ -65,6 +67,7 @@ render () {
     let titulo = '';
     let priceInfo = '';
     let breadcrumbProduct = '';
+    let productDescription = '';
     if (this.state.produto) {
         galeria = (<Galeria product={this.state.produto} />)
         titulo = (<h1>{this.state.produto[0].nome}</h1>)
@@ -74,6 +77,7 @@ render () {
             </div>
         )
         breadcrumbProduct = <div>{this.state.produto[0].apelido}</div>
+        productDescription = <p>{this.state.produto[0].description}</p>
     }
     
 
@@ -115,10 +119,15 @@ render () {
                 </div>
             </div>
         <div className={classes.descricaoProduto}>
-
+            <h2>Descrição do produto</h2>
+            <br/>
+            {productDescription}
+            <br/><br/><br/>
+            <h2>Quem viu, viu também</h2>
         </div>
         <div className={classes.slickSliderShelf}>
-            <Slider />
+
+            <Slider products={this.state.outrosProdutos} />
         </div>
         </div>
     )
