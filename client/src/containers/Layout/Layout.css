@@ -1,19 +1,22 @@
 .Content {
     /* margin-top: 90px; */
-    margin: 0px auto 0px auto;
+    
     max-width: 802px;
     padding: 10px;
     max-width: 850px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 530px) {
     .Content {
         padding: 10px;
+        margin: 0px auto 0px auto;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 530px) {
     .Content {
         padding: 2px;
+        margin: 60px auto 0px auto;
+        
     }
 }
