@@ -1,6 +1,6 @@
 .NavigationItems {
     margin: 0;
-    padding: 0 47px;
+    padding: 0 10px;
     list-style: none;
     display: flex;
     flex-flow: column;

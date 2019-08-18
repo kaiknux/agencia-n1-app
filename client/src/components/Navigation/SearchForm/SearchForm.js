@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import classes from './SearchForm.css';
+
+// import { Router } from "react-router";
+// import { createBrowserHistory } from "history";
+import { Route  } from 'react-router'
+import { withRouter } from 'react-router-dom';
 import axios from '../../../axios-registers';
 
 
@@ -7,59 +12,101 @@ class SearchForm extends Component {
 
     state = {
         suggestions: [],
-        text: '',
-        text1a: '',
+        fetchedProducts: [],
+        searchString: '',
+        final: '',
         
     };
 
+    funcaoReload = (param) => {
+        this.setState({searchString: ''})
+    
+    }
 
-    onTextChanged = (event) => {
-        const value = event.target.value;
-        let suggestions = [];
-        if (value.length > 0) {
-            const regex = new RegExp(`^${value}`, 'i');
-            suggestions = this.state.suggestions.nome.sort().filter(v => regex.test(v));
+    
+    funcaoNova = (event) => {
+        this.setState({
+            searchString: event.target.value
+        })
+        let libraries = this.state.suggestions
+        let searchString = this.state.searchString.trim().toLowerCase()
+        if (searchString.length > 1) {
+            libraries = libraries.filter( i => i.toLowerCase().match( searchString ) )
         }
-        this.setState(() => ({ suggestions, text: value }));
+        console.log(searchString)
+        console.log(libraries)
+        this.setState({final: libraries, backdrap: true, triggerSuggestion: true})
         console.log(this.state)
+
     }
 
     componentDidMount () {
         axios.get('/presentes.json')
         .then(res => {
-            console.log('aqui')
-            console.log(res.data)
             const fetchedProducts = [];
             for (let key in res.data) {
                 fetchedProducts.push({
                     ...res.data[key],
+                    id: key
                 });
             }
-            console.log('fetched products')
-            console.log(fetchedProducts)
-            this.setState({loading: false, suggestions: fetchedProducts});
-            console.log('e agora');
-            console.log(this.state)
-        })
+                this.setState({fetchedProducts: fetchedProducts});
+                let arrayPraFiltrar = fetchedProducts.map(a => a.nome)
+                this.setState({suggestions: arrayPraFiltrar});                
+                console.log(arrayPraFiltrar)
+                console.log(this.state)
+            }
+        )
         .catch(err => {
-            this.setState({loading: false});
+
         });
 
     }
 
 
-    renderSuggestions = () => {
-        const { suggestions } = this.state;
-        if (suggestions.length === 0) {
-            return null;
-        } else {
-        return (
-            <ul className={classes.sugList}> 
-                {suggestions.map((item) => <li onClick={() => this.suggestionStatesCleaner(item)}>{item.name}</li>)}
-            </ul>
-        );
-    }
-    }
+    productSelectedHandler = (prodName) => {
+        this.setState({ searchString: prodName, backdrap: false, triggerSuggestion: false })
+
+        const queryParams = [];
+
+        const libraries = this.state.fetchedProducts
+        for (let osc in libraries) {
+            if (libraries[osc].nome === prodName) {
+                queryParams.push('product=' + libraries[osc].id);
+            }
+        }
+        console.log(queryParams)
+        const queryString = queryParams.join('&');
+        // console.log(this.props)
+        // const lugar = `/sale/${queryString}`
+        this.props.history.push({
+            pathname: '/sale',
+            search: '/' + queryString
+        });
+        window.location.reload();
+        }
+
+        
+        // this.props.history.push({
+        //     pathname: '/sale',
+        //     search: '/' + queryString
+        // });
+    
+  
+
+
+        // const queryParams = [];
+        // queryParams.push('product=' + id);
+        // const queryString = queryParams.join('&');
+        // this.props.history.push({
+        //     pathname: '/sale',
+        //     search: '/' + queryString
+        // });
+
+    
+
+
+
     suggestionSelected (optionClicked) {
         console.log(optionClicked)
         const agoraSim = optionClicked;
@@ -78,10 +125,33 @@ class SearchForm extends Component {
 //     this.setState({suggestions: []})
 // }
     render() {
-        const { text } = this.state;
+
+        const text = this.state.searchString;
+        let backdrap = null;
+        let sugestoes = null;
+        if (this.state.searchString && this.state.triggerSuggestion) {
+            sugestoes = (
+                this.state.final.map(
+                    sugestaoUnica => {
+                        return ( 
+                        <div className={classes.sugList} onClick={() => this.productSelectedHandler(sugestaoUnica)}>
+                            {sugestaoUnica}
+                        </div>
+                        )
+                    }
+                )
+            ) 
+        }
+        if (this.state.backdrap) {
+            backdrap = (
+                <div className={classes.Backdrap} onClick={this.funcaoReload}></div>
+            )
+        }
+
         return (
                 <div className={classes.Headerf1}>
                     <form onSubmit={this.getWeather}>
+                        <Route></Route>
                         <div className={classes.Container}>
                             <input     onKeyPress={event => {
                                           if (event.key === 'Enter') {
@@ -89,17 +159,17 @@ class SearchForm extends Component {
                                          }}}
                                          autoComplete="off" 
                                          value={text} 
-                                         onChange={this.onTextChanged} 
+                                         onChange={this.funcaoNova} 
                                          name="city" 
-                                         placeholder="" 
+                                         placeholder="Digite o que procura" 
                                          className={classes.FormControl} 
                                          autoFocus 
                                          />
-                            {this.renderSuggestions()}
+                                         <div className={classes.sugPackage}>{sugestoes}</div>
+                                         {backdrap}
+                                         
+                            
                         </div>
-                        {/* <button className={classes.ButtonAs}>
-                            Get Weather!
-            </button> */}
                     </form>
                 </div>
 
@@ -107,4 +177,4 @@ class SearchForm extends Component {
     }
 };
 
-export default SearchForm;
+export default withRouter(SearchForm);

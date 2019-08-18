@@ -56,23 +56,46 @@ class Sale extends Component {
 
 render () {
     let galeria = <Spinner />
+    let titulo = '';
+    let priceInfo = '';
     if (this.state.produto) {
         galeria = (<Galeria product={this.state.produto} />)
+        titulo = (<h1>{this.state.produto[0].nome}</h1>)
+        priceInfo = ( <div>
+            <p>de {this.state.produto[0].price}</p>
+            <p><br/>por </p><h4>{this.state.produto[0].realprice}</h4>
+            </div>
+        )
     }
+    
 
 
     return ( 
         <div className={classes.Sale}>
-            <div className={classes.bredCrumbGrid}>
-
+            <div className={classes.breadCrumbGrid}>
+                breadCrumbs
             </div>
             <div className={classes.cartaoDoProduto}>
                 <div className={classes.imagemProduto}>
-                        {/* <GaleriaImagens /> */}
-                        {galeria}
+                    {/* <GaleriaImagens /> */}
+                    {galeria}
                 </div>
                 <div className={classes.navegadorDeCompra}>
-                    
+                    <div className={classes.productName}>
+                        {titulo}
+                    </div>
+                    <div className={classes.priceBuyBox}>
+                        {priceInfo}
+                        <button>COMPRA AE</button>
+                    </div>
+                    <div className={classes.freteCalculation}>
+                        <div>CALCULE O FRETE:</div>
+                        
+                        <div className={classes.ceparea}>
+                        <input type="text" className={classes.abc} placeholder="00000"/> <input type="text" className={classes.cde} placeholder="000"/> <button />
+
+                        </div>
+                    </div>
                 </div>
             </div>
         <div className={classes.descricaoProduto}>
