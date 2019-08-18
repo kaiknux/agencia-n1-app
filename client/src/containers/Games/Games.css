@@ -12,10 +12,6 @@
     list-style: none;
 }
 
-.Upload {
-    width: 450px;
-    margin: auto;
-}
 
 .Upload p {
     font-size: 12px;
@@ -30,7 +26,7 @@
 .ProdutosCadastrados {
     margin: auto;
     padding-top: 30px;
-    width: 700px;
+    width: 100%;
 
     display: -webkit-box;
     display: -moz-box;
@@ -47,18 +43,16 @@
     margin: auto;
 }
 
-@media (max-width: 900px) {
-    .Games {
-        width: 800px;
-        height: 100%;
-        margin: 40px auto;
+@media (max-width: 600px) {
+    .Upload {
+        width: 70%;
+        margin: auto;
     }
 }
-@media (min-width: 901px) {
-    .Games {
-        max-width: 800px;
-        min-width: 600px;
-        height: 100%;
-        margin: 40px auto;
+
+@media (min-width: 600px) {
+    .Upload {
+        width: 450px;
+        margin: auto;
     }
 }
