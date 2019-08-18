@@ -1,5 +1,4 @@
 .Outerfooter {
-    position: relative;
     bottom: 0;
     margin: 0;
     width: 100%;
@@ -45,4 +44,15 @@
     margin: auto 30px auto 0px;
     vertical-align: baseline;
     
+  }
+  @media (min-width: 600) {
+    .Outerfooter {
+      position: relative;
+    }
+  }
+
+  @media (max-width: 600) {
+    .Outerfooter {
+      position: absolute;
+    }
   }
