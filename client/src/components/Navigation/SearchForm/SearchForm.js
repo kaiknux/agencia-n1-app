@@ -62,8 +62,6 @@ class SearchForm extends Component {
         });
 
     }
-    // https://serene-yonath-2e29cf.netlify.com/sale?/product=-LmPF6Zmn-HLkL_yWx3i
-    // https://serene-yonath-2e29cf.netlify.com/sale?/product=-LmPF6Zmn-HLkL_yWx3i
 
     productSelectedHandler = (prodName) => {
         this.setState({ searchString: prodName, backdrap: false, triggerSuggestion: false })
