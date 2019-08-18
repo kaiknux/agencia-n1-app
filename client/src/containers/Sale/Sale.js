@@ -56,7 +56,12 @@ class Sale extends Component {
     }
 
 render () {
-    let galeria = <Spinner />
+    let galeria = (<div className={classes.showSpinner}>
+    <Spinner />
+    <h4>Vá até PRESENTES e selecione um produto!</h4>
+    </div>
+
+    )
     let titulo = '';
     let priceInfo = '';
     let breadcrumbProduct = '';
