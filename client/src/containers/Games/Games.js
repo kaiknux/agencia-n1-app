@@ -24,7 +24,7 @@ class Games extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Short name para o produto, a ser exibido no BreadCrumbs',
+                    placeholder: 'Short name do produto, a ser exibido no BreadCrumbs',
                 },
                 value: '',
                 validation: {
