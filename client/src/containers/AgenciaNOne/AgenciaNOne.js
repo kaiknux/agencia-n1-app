@@ -20,13 +20,12 @@ render () {
             <h2>Comentários do ReacTJS:</h2>
             <h1>Posição almejada na Agencia N1</h1>
             <p>Estudei a empresa de vocês, gostei e me interesso pelo que vocês fazem. Quero trabalhar com vocês - embora com pouca experiência em programação web busco as melhores práticas de programação e conhecimeto para melhor ajudar.</p>
-            <p>Me propus a fazer os componentes de ReactJS porque meu objetivo profissional e de vida para os próximos 3 anos é ganhar experiência e o máximo de conhecimento possível em NodeJS, ReactJS, React Native.</p>
             <h1>Reaproveitamento de componentes X hard coding</h1>
             <p>Me propus a fazer os componentes de ReactJS porque meu objetivo profissional para os próximos 3 anos é ganhar experiência e o máximo de conhecimento possível em NodeJS, ReactJS, React Native.</p>
-            <p>Reaproveitei os componentes de backdrop, modal e sidedrawer. Reaproveitei formatação do axios + firebase.</p>
-            <p>Me propus a fazer em 'hard code' o máximo possível, a fim de me expor ao teste do exercício. Não almejo a vaga 'chefão', mas busco isso no ReactJS: desenvolvimento na área de programação web.</p>
-            <p>Creio que a solução do campo de busca não é a melhor possível, coloquei pouquíssimas regras nos forms (por ser um projeto com prazo de mais ou menos uma semana evitei investir em regras de avaliação dos forms, etc)</p>
-            <p>Creio que a melhor solução para o projeto seria desenvolver com Redux ou Context API desde o inicio, porém prefiri trabalhar com jQuery por ter mais experiência e mais previsibilidade com essa ferramenta.</p>
+            <p>Componentes de backdrop, modal, sidedrawer, axios e Firebase são reaproveitados.</p>
+            <p>A proposta foi de fazer em 'hard code' o máximo possível, a fim de me expor ao teste do exercício. Não almejo a vaga 'chefão', mas busco isso no ReactJS: desenvolvimento na área de programação web.</p>
+            <p>Tenho consciência de que a solução do campo de busca não é a melhor possível e também coloquei pouquíssimas regras nos forms dado o prazo e contexto do desafio.</p>
+            <p>Acredito que a melhor solução para o desafio seria desenvolver com Redux ou Context API desde o inicio, porém prefiri trabalhar com jQuery por ter mais experiência e mais previsibilidade com essa ferramenta.</p>
             <p>À medida em que tiver mais experiência pretendo melhorar este projeto a fim de compor meu portifólio.</p>
             <h2>Comentários do CSS:</h2>
             <h1>Cores dos tons de cinza (e demais cores)</h1>
