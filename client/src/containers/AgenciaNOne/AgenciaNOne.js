@@ -10,12 +10,13 @@ render () {
     return ( 
         <div className={classes.AgenciaNOne}>
             <h2>Comentários do Exercício (readme):</h2>
-            <p>Oi pessoal, meu nome é Eron Oliveira. O desafio proposto é refererente a DESIGN RESPONSIVO, mas como meu estudo é de ReactJS resolvi usá-lo, como pretendo fazer daqui em diante.</p>
+            <p>Oi pessoal, meu nome é Eron Oliveira. Sou mineiro, tenho 30 anos e moro no Flamengo - Rio de Janeiro. O desafio proposto é refererente a DESIGN RESPONSIVO, mas como meu estudo é de ReactJS resolvi usá-lo, como pretendo fazer daqui em diante.</p>
             <p>Meu github: <a href="https://github.com/kaiknux">https://github.com/kaiknux</a></p>
             <p>Repositório deste desafio: <a href="https://github.com/kaiknux/agencia-n1-app">https://github.com/kaiknux/agencia-n1-app</a></p>
             <p>Este desafio hospedado no Netlify: <a href="https://serene-yonath-2e29cf.netlify.com">https://serene-yonath-2e29cf.netlify.com</a></p>
             <p>Meu site pessoal (work in progress): <a href="https://zealous-yonath-d830ee.netlify.com">https://zealous-yonath-d830ee.netlify.com</a></p>
             <p>Desenvolvido no VSCode, versionado no Github.</p>
+            <p>Meu e-mail: eron.adco@gmail.com Skype: eron.adco@gmail.com. Telefone(whatsapp e telegram): (21)9 8228-7075</p>
             <h2>Comentários do ReacTJS:</h2>
             <h1>Posição almejada na Agencia N1</h1>
             <p>Estudei a empresa de vocês, gostei e me interesso pelo que vocês fazem. Quero trabalhar com vocês - embora com pouca experiência em programação web busco as melhores práticas de programação e conhecimeto para melhor ajudar.</p>
